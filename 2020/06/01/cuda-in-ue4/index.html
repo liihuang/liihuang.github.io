@@ -1,73 +1,100 @@
-
 <!DOCTYPE html>
-<html lang="en" class="loading">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>cuda in ue4 - 阿立的打工日记</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="huangli blog,"> 
-    <meta name="description" content="在Unreal中如何使用CUDA？一般有两种方法。
-链接第三方库
-将CUDA代码编译成静态库（.a, .lib）或动态库（.so, .dll）
-在.build.cs配置文件中配置好相关配置，主要有：,"> 
-    <meta name="author" content="Huang Li"> 
-    <link rel="alternative" href="atom.xml" title="阿立的打工日记" type="application/atom+xml"> 
-    <link rel="icon" href="/img/icon_transparent.jpg"> 
-    
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <meta charset="utf-8">
+  
 
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+  
+  <title>cuda in ue4 | Li Huang&#39;s Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在Unreal中如何使用CUDA？一般有两种方法。 链接第三方库 将CUDA代码编译成静态库（.a, .lib）或动态库（.so, .dll） 在.build.cs配置文件中配置好相关配置，主要有： 头文件目录 库文件目录 如果是静态库，还需包含CUDA库文件目录   在UE代码中包含相应的头文件，调用所需函数。  注意1：在将CUDA函数封装成库时，最好封装到最上层不包括CUDA的任何接口，将调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cuda in ue4">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/cuda-in-ue4/index.html">
+<meta property="og:site_name" content="Li Huang&#39;s Home Page">
+<meta property="og:description" content="在Unreal中如何使用CUDA？一般有两种方法。 链接第三方库 将CUDA代码编译成静态库（.a, .lib）或动态库（.so, .dll） 在.build.cs配置文件中配置好相关配置，主要有： 头文件目录 库文件目录 如果是静态库，还需包含CUDA库文件目录   在UE代码中包含相应的头文件，调用所需函数。  注意1：在将CUDA函数封装成库时，最好封装到最上层不包括CUDA的任何接口，将调">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-01T15:13:38.000Z">
+<meta property="article:modified_time" content="2023-01-31T12:23:37.673Z">
+<meta property="article:author" content="Huang Li">
+<meta property="article:tag" content="unreal">
+<meta property="article:tag" content="cuda">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Li Huang&#39;s Home Page" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-<body class="loading">
-    <span id="config-title" style="display:none">阿立的打工日记</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">cuda in ue4</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Li Huang&#39;s Home Page</a>
+      </h1>
+      
     </div>
-    <div class="scrollbar"></div>
-</div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cuda-in-ue4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/01/cuda-in-ue4/" class="article-date">
+  <time datetime="2020-06-01T15:13:38.000Z" itemprop="datePublished">2020-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/notes/">notes</a>►<a class="article-category-link" href="/categories/notes/game-engine/">game engine</a>
+  </div>
 
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">cuda in ue4</h1>
-        <div class="stuff">
-            <span>六月 01, 2020</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cuda/" rel="tag">cuda</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/unreal/" rel="tag">unreal</a></li></ul>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cuda in ue4
+    </h1>
+  
 
-
-        </div>
-        <div class="content markdown">
-            <p>在Unreal中如何使用CUDA？一般有两种方法。</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Unreal中如何使用CUDA？一般有两种方法。</p>
 <h1 id="链接第三方库"><a href="#链接第三方库" class="headerlink" title="链接第三方库"></a>链接第三方库</h1><ol>
 <li>将CUDA代码编译成静态库（.a, .lib）或动态库（.so, .dll）</li>
 <li>在.build.cs配置文件中配置好相关配置，主要有：<ul>
@@ -82,106 +109,136 @@
 <h1 id="利用nvrtc"><a href="#利用nvrtc" class="headerlink" title="利用nvrtc"></a>利用nvrtc</h1><p>将CUDA代码直接写入到UE4工程的代码中。在运行时利用NVIDIA提供的CUDA运行时库nvrtc将CUDA代码编译成GPU代码再使用。<br>这种方式比较麻烦，因为要将CUDA代码完全写死在代码里，比较适合轻量级的CUDA调用。</p>
 <h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>TODO: 有空了再来补两个实际例子。<br>TODO2：也许可以在UE4的Visual Studio工程里配置好CUDA的头文件和库目录，并指定用nvcc编译CUDA代码。不过这种方式我还没有试成功，等成功后再来补上。</p>
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-		data-enable='true'
-        data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
-        data-d='false'
-    >查看评论</div>
-
-
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/01/cuda-in-ue4/" data-id="cldk93kig00016wsh7yu313lq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cuda/" rel="tag">cuda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unreal/" rel="tag">unreal</a></li></ul>
+
+    </footer>
+  </div>
+  
     
-</div>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/16/Graduation-from-ZJU/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">终于，硕士毕业</div>
+    </a>
+  
+</nav>
 
+  
+</article>
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/diary/jotting/">jotting</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/notes/">notes</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/notes/game-engine/">game engine</a></li></ul></li></ul>
     </div>
-</div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cuda/" rel="tag">cuda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/school/" rel="tag">school</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unreal/" rel="tag">unreal</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/cuda/" style="font-size: 10px;">cuda</a> <a href="/tags/life/" style="font-size: 20px;">life</a> <a href="/tags/school/" style="font-size: 10px;">school</a> <a href="/tags/unreal/" style="font-size: 10px;">unreal</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/01/cuda-in-ue4/">cuda in ue4</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/16/Graduation-from-ZJU/">终于，硕士毕业</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/05/my-first-post/">My first post</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Huang Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
 </body>
-
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
 </html>
