@@ -505,6 +505,12 @@ blockquote p {
   .page .page-title {
     padding: 0 3.6rem;
   }
+  .page .paper_detail {
+    padding: 0 3.6rem 3.6rem;
+  }
+  .page .teaser_img {
+    margin: right;
+  }
   .page article {
     padding: 0 3.6rem 3.6rem;
   }
