@@ -508,6 +508,9 @@ blockquote p {
   .page .paper_detail {
     padding: 0 3.6rem 3.6rem;
   }
+  .page .paper_detail .paper_authors .author {
+    padding: 0 1rem;
+  }
   .page .teaser_img {
     margin: right;
   }
