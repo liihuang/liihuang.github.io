@@ -511,6 +511,19 @@ blockquote p {
   .page .paper_detail .paper_authors .author {
     padding: 0 1rem;
   }
+  .page .paper_detail .paper_video .video_container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+  }
+  .page .paper_detail .paper_video .video_container .video_frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
   .page .teaser_img {
     margin: right;
   }
