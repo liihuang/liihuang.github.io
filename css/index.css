@@ -496,6 +496,13 @@ blockquote p {
     max-width: 1200px;
   }
 }
+.page .paper_detail .paper_authors {
+  display: flex;
+  justify-content: space-between;
+}
+.page .paper_detail .paper_authors a {
+  text-decoration: none;
+}
 @media (min-width: 34em) {
   .page {
     width: 82.5%;
@@ -507,9 +514,6 @@ blockquote p {
   }
   .page .paper_detail {
     padding: 0 3.6rem 3.6rem;
-  }
-  .page .paper_detail .paper_authors .author {
-    padding: 0 1rem;
   }
   .page .paper_detail .paper_video .video_container {
     position: relative;
