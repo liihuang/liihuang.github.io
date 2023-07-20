@@ -502,6 +502,8 @@ blockquote p {
 }
 .page .paper_detail .paper_authors a {
   text-decoration: none;
+  margin: 1rem 0.2rem;
+  text-shadow: 0.1em 0.1em 0.2em #000;
 }
 @media (min-width: 34em) {
   .page {
